@@ -6,7 +6,9 @@ Funcionalidade: Cadastro de anuncios
     Para que eu possa disponibilizar para locacao
 
     Cenario: Novo equipo
-        Dado que eu tenho o seguinte equipamento:
+        Dado que estou logado como "gabriel.@gmail.com" e "pwd123"
+            E que acesso o formulario de cadastro de anuncios
+            E que eu tenho o seguinte equipameto:
             | thumb     | fender-sb.jpg |
             | nome      | Fender Strato |
             | categoria | Cordas        |
