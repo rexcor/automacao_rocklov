@@ -15,6 +15,9 @@ Dado('que eu tenho o seguinte equipameto:') do |table|
 end 
 
 Quando('submeto o cadastro desse item') do
+    thumb = Dir.pwd + "/features/support/fixtures/images/" + @anuncio[:thumb]
+    find("#thumbnail input[type=file]", visible: false).set thumb
+
     find("#name").set @anuncio[:nome]
     find("#category").find('option', text: @anuncio[:categoria]).select_option
     find("#price").set @anuncio[:preco]
