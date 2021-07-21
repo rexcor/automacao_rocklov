@@ -1,4 +1,6 @@
 Dado('que estou logado como {string} e {string}') do |email, password|
+    #variavel email criada para utilizacao no metodo de exclusao de anuncio
+    @email = email
     visit "/"
     find("#email").set email
     find("#password").set password
@@ -12,6 +14,7 @@ end
   
 Dado('que eu tenho o seguinte equipameto:') do |table|
     @anuncio = table.rows_hash
+    MongoDB.new.remove_equipo(@anuncio[:nome], @email)
 end 
 
 Quando('submeto o cadastro desse item') do
@@ -21,10 +24,12 @@ Quando('submeto o cadastro desse item') do
     find("#name").set @anuncio[:nome]
     find("#category").find('option', text: @anuncio[:categoria]).select_option
     find("#price").set @anuncio[:preco]
-    #click_button "Cadastrar"
-    sleep 10
+    click_button "Cadastrar"
 end
   
 Entao('devo ver esse item no meu Dashboard') do
-    pending # Write code here that turns the phrase above into concrete actions
+    anuncios = find(".equipo-list")
+    expect(anuncios).to have_content @anuncio[:nome]
+    expect(anuncios).to have_content "R$#{@anuncio[:preco]}/dia"
+    expect(anuncios).to have_xpath "//*[contains(@style,'background-image')]"
 end
