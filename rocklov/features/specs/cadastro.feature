@@ -46,7 +46,7 @@ Funcionalidade: Cadastro
 
         Exemplos:
             | nome_input | email_input        | senha_input | mensagem_output                  |
-            |            | gabriel.@gmail.com | teste123    | Oops. Informe seu nome completo! |
-            | Gabriel    |                    | teste123    | Oops. Informe um email válido!   |
-            | Gabriel    | gabriel&gmail.com  | teste123    | Oops. Informe um email válido!   |
+            |            | gabriel.@gmail.com | pwd123      | Oops. Informe seu nome completo! |
+            | Gabriel    |                    | pwd123      | Oops. Informe um email válido!   |
+            | Gabriel    | gabriel&gmail.com  | pwd123      | Oops. Informe um email válido!   |
             | Gabriel    | gabriel.@gmail.com |             | Oops. Informe sua senha secreta! |

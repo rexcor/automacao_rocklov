@@ -3,10 +3,10 @@ Dado('que acesso a pagina de cadastro') do
 end
   
 Quando('efetuo o meu cadastro completo') do
-    MongoDB.new.remove_user("gabriel.@gmail.com")
+    MongoDB.new.remove_user("gabriel_teste@gmail.com")
     find("#fullName").set "Gabriel"
-    find("#email").set "gabriel.@gmail.com"
-    find("#password").set "teste123"
+    find("#email").set "gabriel_teste@gmail.com"
+    find("#password").set "pwd123"
     click_button "Cadastrar"
 end
 

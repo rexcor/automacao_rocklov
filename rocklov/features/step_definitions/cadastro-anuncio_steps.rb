@@ -2,8 +2,8 @@ Dado('que estou logado como {string} e {string}') do |email, password|
     #variavel email criada para utilizacao no metodo de exclusao de anuncio
     @email = email
     visit "/"
-    find("#email").set email
-    find("#password").set password
+    find("#user_email").set email
+    find("#user_password").set password
     click_button "Entrar"
 end
   
