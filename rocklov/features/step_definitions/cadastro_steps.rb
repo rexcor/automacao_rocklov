@@ -51,18 +51,16 @@ end
 #     expect(alert.text).to eql "Oops. Informe sua senha secreta!"
 #   end
 
+Quando('submeto o seguinte formulario de cadastro:') do |table|
+  user = table.hashes.first
+  MongoDB.new.remove_user(user[:email])
+  find("#fullName").set user[:nome]
+  find("#email").set user[:email]
+  find("#password").set user[:senha]
+  click_button "Cadastrar"
+end
 
-  Entao('vejo a mensagem de alerta: {string}') do |expect_alert|
+Entao('vejo a mensagem de alerta: {string}') do |expect_alert|
     alert = find(".alert-dark")
     expect(alert.text).to eql expect_alert
-  end
-
-
-  Quando('submeto o seguinte formulario de cadastro:') do |table|
-    user = table.hashes.first
-    MongoDB.new.remove_user(user[:email])
-    find("#fullName").set user[:nome]
-    find("#email").set user[:email]
-    find("#password").set user[:senha]
-    click_button "Cadastrar"
-  end
+end

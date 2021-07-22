@@ -10,30 +10,30 @@ Funcionalidade: Cadastro
         Dado que acesso a pagina de cadastro
         Quando efetuo o meu cadastro completo
         Entao sou redirecionado para o Dashboard
-    @tentativa_cadastro
-    Cenario: Efetuar cadastro sem o nome
+    # @tentativa_cadastro
+    # Cenario: Efetuar cadastro sem o nome
 
-        Dado que acesso a pagina de cadastro
-        Quando efetuo o meu cadastro sem o nome
-        Entao vejo a mensagem de alerta: "Oops. Informe seu nome completo!"
-    @tentativa_cadastro
-    Cenario: Efetuar cadastro sem o email
+    #     Dado que acesso a pagina de cadastro
+    #     Quando efetuo o meu cadastro sem o nome
+    #     Entao vejo a mensagem de alerta: "Oops. Informe seu nome completo!"
+    # @tentativa_cadastro
+    # Cenario: Efetuar cadastro sem o email
 
-        Dado que acesso a pagina de cadastro
-        Quando efetuo o meu cadastro sem o email
-        Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
-    @tentativa_cadastro
-    Cenario: Submeter cadastro com email incorreto
+    #     Dado que acesso a pagina de cadastro
+    #     Quando efetuo o meu cadastro sem o email
+    #     Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
+    # @tentativa_cadastro
+    # Cenario: Submeter cadastro com email incorreto
 
-        Dado que acesso a pagina de cadastro
-        Quando efetuo o meu cadastro com email incorreto
-        Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
-    @tentativa_cadastro
-    Cenario: Efetuar cadastro sem a senha
+    #     Dado que acesso a pagina de cadastro
+    #     Quando efetuo o meu cadastro com email incorreto
+    #     Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
+    # @tentativa_cadastro
+    # Cenario: Efetuar cadastro sem a senha
 
-        Dado que acesso a pagina de cadastro
-        Quando efetuo o meu cadastro sem a senha
-        Entao vejo a mensagem de alerta: "Oops. Informe sua senha secreta!"
+    #     Dado que acesso a pagina de cadastro
+    #     Quando efetuo o meu cadastro sem a senha
+    #     Entao vejo a mensagem de alerta: "Oops. Informe sua senha secreta!"
 
     @esquemadocenario
     Esquema do Cenario: Tentativa de cadastro

@@ -10,44 +10,42 @@ Funcionalidade: Login
         Dado que acesso a página principal
         Quando submeto minhas credenciais válidas com "gabriel_teste@gmail.com" e "pwd123"
         Então sou redirecionado para o Dashboard
-    @tentativaslogin
-    Cenario: Senha incorreta
+    # @tentativaslogin
+    # Cenario: Senha incorreta
 
-        Dado que acesso a página principal
-        Quando submeto minhas credenciais com senha incorreta
-        Então vejo a mensagem de alerta: Usuário e/ou senha inválidos.
-    @tentativaslogin
-    Cenário: Email não cadastrado
+    #     Dado que acesso a página principal
+    #     Quando submeto minhas credenciais com senha incorreta
+    #     Então vejo a mensagem de alerta: Usuário e/ou senha inválidos.
+    # @tentativaslogin
+    # Cenário: Email não cadastrado
 
-        Dado que acesso a página principal
-        Quando submeto minhas credenciais com email que não existe na Rocklov
-        Então vejo a mensagem de alerta: Usuário e/ou senha inválidos.
-    @tentativaslogin
-    Cenario: Email incorreto
+    #     Dado que acesso a página principal
+    #     Quando submeto minhas credenciais com email que não existe na Rocklov
+    #     Então vejo a mensagem de alerta: Usuário e/ou senha inválidos.
+    # @tentativaslogin
+    # Cenario: Email incorreto
 
-        Dado que acesso a página principal
-        Quando submeto minhas credenciais com email incorreto
-        Então vejo a mensagem de alerta: Oops. Informe um email válido!
-    @tentativaslogin
-    Cenario: Email não informado
+    #     Dado que acesso a página principal
+    #     Quando submeto minhas credenciais com email incorreto
+    #     Então vejo a mensagem de alerta: Oops. Informe um email válido!
+    # @tentativaslogin
+    # Cenario: Email não informado
 
-        Dado que acesso a página principal
-        Quando submeto minhas credenciais sem o email
-        Então vejo a mensagem de alerta: Oops. Informe um email válido!
-    @tentativaslogin
-    Cenario: Senha não informada
+    #     Dado que acesso a página principal
+    #     Quando submeto minhas credenciais sem o email
+    #     Então vejo a mensagem de alerta: Oops. Informe um email válido!
+    # @tentativaslogin
+    # Cenario: Senha não informada
 
-        Dado que acesso a página principal
-        Quando submeto minhas credenciais sem a senha
-        Então vejo a mensagem de alerta: ops. Informe sua senha secreta!
+    #     Dado que acesso a página principal
+    #     Quando submeto minhas credenciais sem a senha
+    #     Então vejo a mensagem de alerta: ops. Informe sua senha secreta!
 
     @esquematentativalogin
-    Cenario: Tentativa de login
+    Esquema do Cenario: Tentativa de login
 
         Dado que acesso a página principal
-        Quando submeto o seguinte formulário de login:
-            | email         | senha         |
-            | <email_input> | <senha_input> |
+        Quando submeto minhas credenciais válidas com "<email_input>" e "<senha_input>"
         Então vejo a mensagem de alerta: "<mensagem_output>"
 
         Exemplos:
