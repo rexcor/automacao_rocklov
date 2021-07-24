@@ -1,11 +1,13 @@
 Dado('que acesso a página principal') do
-    visit "/"
+    login_page = LoginPage.new
+    login_page.abrir
 end
   
 Quando('submeto minhas credenciais válidas com {string} e {string}') do |email, password|
-    find("input[placeholder='Seu email']").set email #css selector para busca do placeholder, manter entre aspas simples caso nome seja composto
-    find("input[type=password]").set password #css selector para busca do type
-    click_button "Entrar"
+    login_page = LoginPage.new
+    login_page.campo_email.set email
+    login_page.campo_senha.set password
+    login_page.botao_entrar
 end
 
 #Passo do então está compartilhado do arquivo shared_steps.rb
