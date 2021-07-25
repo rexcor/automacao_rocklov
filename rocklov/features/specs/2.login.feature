@@ -50,7 +50,7 @@ Funcionalidade: Login
 
         Exemplos:
             | email_input        | senha_input | mensagem_output                  |
-            | gabriel.@gmail.com | abc123      | Usuário e/ou senha inválidos.    |
+            | gabriel.@gmail.com | pwd123      | Usuário e/ou senha inválidos.    |
             | teste123@gmail.com | teste123    | Usuário e/ou senha inválidos.    |
             | gabriel.$gmail.com | pwd123      | Oops. Informe um email válido!   |
             |                    | pwd123      | Oops. Informe um email válido!   |
