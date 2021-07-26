@@ -1,4 +1,4 @@
-Dado('que estou logado como {string} e {string}') do |email, password|
+Dado('Login com {string} e {string}') do |email, password|
     #variavel email criada para utilizacao no metodo de exclusao de anuncio
     @email = email
     @login_page.open
