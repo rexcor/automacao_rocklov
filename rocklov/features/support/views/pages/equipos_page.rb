@@ -7,9 +7,13 @@ include Capybara::DSL
         #validacao se imagem for vazio nao realizar upload
         upload(equipo[:thumb]) if equipo[:thumb].length > 0
         find("#name").set equipo[:nome]
-        find("#category").find('option', text: equipo[:categoria]).select_option
+        select_categoria(equipo[:categoria]) if equipo[:categoria].length > 0
         find("#price").set equipo[:preco]
         click_button "Cadastrar"
+    end
+
+    def select_categoria(categoria)
+        find("#category").find('option', text: categoria).select_option
     end
 
     def upload(filename)
