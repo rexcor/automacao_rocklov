@@ -23,3 +23,7 @@ Entao('devo ver esse item no meu Dashboard') do
     expect(@dash_page.equipo_list).to have_content "R$#{@anuncio[:preco]}/dia"
     expect(@dash_page.equipo_list).to have_xpath "//*[contains(@style,'background-image')]"
 end
+
+Entao('deve conter a mensagem de alerta: {string}') do |expect_alert|
+    expect(@alert.dark).to have_text expect_alert
+end
