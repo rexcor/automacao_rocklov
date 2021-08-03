@@ -32,6 +32,27 @@ describe "POST /equipos" do
             expect(@result.code).to eql 200
         end
 
+        context "nao autorizado" do
+
+            before(:all) do
+    
+                thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "violino.jpg"))
+    
+                payload = {
+                    thumbnail: thumbnail,
+                    name: "Violino Stradivarius",
+                    category: "Cordas",
+                    price: 599,
+                }
+
+                @result = Equipos.new.create(payload, nil)
+            end
+    
+            it "valida status 401" do
+                expect(@result.code).to eql 401
+            end
+
+        end
 
     end
 
