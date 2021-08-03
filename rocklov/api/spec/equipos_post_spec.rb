@@ -7,7 +7,7 @@ describe "POST /equipos" do
         @user_id = result.parsed_response["_id"]
     end
 
-    context "novo equipo" do
+    context "Novo equipo" do
 
         before(:all) do
 
@@ -22,11 +22,11 @@ describe "POST /equipos" do
             @result = Equipos.new.create(payload, @user_id)
         end
 
-        it "valida status 200" do
+        it "Valida status 200" do
             expect(@result.code).to eql 200
         end
 
-        context "nao autorizado" do
+        context "Nao autorizado" do
 
             before(:all) do
  
@@ -40,7 +40,7 @@ describe "POST /equipos" do
                 @result = Equipos.new.create(payload, nil)
             end
     
-            it "valida status 401" do
+            it "Valida status 401" do
                 expect(@result.code).to eql 401
             end
 

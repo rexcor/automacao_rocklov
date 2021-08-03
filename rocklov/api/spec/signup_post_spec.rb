@@ -1,23 +1,23 @@
 describe "POST /signup" do
     
-    context "novo usuario"do
+    context "Novo usuario"do
         before(:all) do
             payload = {name: "Alex", email: "alex@google.com.br", password: "pwd123"}
             MongoDB.new.remove_user(payload[:email])
             @result = Signup.new.create(payload)
         end
         
-        it "valida status code" do  
+        it "Valida status code" do  
             expect(@result.code).to eql 200
         end
 
-        it "valida id do usuario" do
+        it "Valida id do usuario" do
             expect(@result.parsed_response["_id"].length).to eql 24
         end
 
     end
 
-    context "usuario ja cadastrado" do
+    context "Usuario ja cadastrado" do
         before(:all) do
             payload = {name: "Arya Stark", email: "arya@stark.com.br", password: "pwd123"}
             MongoDB.new.remove_user(payload[:email])
@@ -25,15 +25,15 @@ describe "POST /signup" do
             @result = Signup.new.create(payload)
         end
 
-        it "valida status code" do
+        it "Valida status code" do
             expect(@result.code).to eql 409
         end
 
-        it "mensagem de erro" do
+        it "Mensagem de erro" do
             expect(@result.parsed_response["error"]).to eql "Email already exists :("
         end
 
-        it "valida bussiness code 1001" do
+        it "Valida bussiness code 1001" do
             expect(@result.parsed_response["code"]).to eql 1001
         end
     end
@@ -89,11 +89,11 @@ describe "POST /signup" do
                 @result = Signup.new.create(e[:payload])
             end
 
-            it "valida status #{e[:code]}" do
+            it "Valida status #{e[:code]}" do
                 expect(@result.code).to eql e[:code]
             end
 
-            it "mensagem de erro" do
+            it "Mensagem de erro" do
                 expect(@result.parsed_response["error"]).to eql e[:error]    
             end
         end    

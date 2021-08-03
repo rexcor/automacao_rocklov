@@ -5,11 +5,11 @@ describe "POST /sessions" do
             @result = Sessions.new.login(payload)
         end
     
-        it "valida status code" do  
+        it "Valida status code" do  
             expect(@result.code).to eql 200
         end
 
-        it "valida id do usuario" do
+        it "Valida id do usuario" do
             expect(@result.parsed_response["_id"].length).to eql 24
         end
     end
@@ -59,11 +59,11 @@ describe "POST /sessions" do
                 @result = Sessions.new.login(e[:payload])
             end
         
-            it "valida status #{e[:code]}" do  
+            it "Valida status #{e[:code]}" do  
                 expect(@result.code).to eql e[:code]
             end
     
-            it "mensagem de erro" do
+            it "Mensagem de erro" do
                 expect(@result.parsed_response["error"]).to eql e[:error]
             end
         end
