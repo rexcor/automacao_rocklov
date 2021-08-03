@@ -1,7 +1,3 @@
-require_relative "routes/equipos"
-require_relative "routes/sessions"
-require_relative "libs/mongo"
-
 describe "POST /equipos" do
     
     #Efetua o login e salva o id de usuário para utillização no header da criação de anúncio 
@@ -15,10 +11,8 @@ describe "POST /equipos" do
 
         before(:all) do
 
-            thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "kramer.jpg"))
-
             payload = {
-                thumbnail: thumbnail,
+                thumbnail: Helpers::get_thumb("kramer.jpg"),
                 name: "kramer guitar",
                 category: "Cordas",
                 price: 199,
@@ -35,11 +29,9 @@ describe "POST /equipos" do
         context "nao autorizado" do
 
             before(:all) do
-    
-                thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "violino.jpg"))
-    
+ 
                 payload = {
-                    thumbnail: thumbnail,
+                    thumbnail: Helpers::get_thumb("kramer.jpg"),
                     name: "Violino Stradivarius",
                     category: "Cordas",
                     price: 599,
