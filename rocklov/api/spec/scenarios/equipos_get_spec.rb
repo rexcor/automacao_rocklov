@@ -51,3 +51,54 @@ describe "GET /equipos/{equipo_id}" do
     end
 
 end
+
+describe "GET /equipos" do
+
+    before(:all) do
+            payload = {email: "jon_snow@stark.com.br", password: "pwd123"}
+            result = Sessions.new.login(payload)
+            @user_id = result.parsed_response["_id"]
+    end
+
+    context "Obter lista de equipos" do
+        # dado que tenha uma lista de equipos
+        before(:all) do
+            payloads = [
+                {
+                    thumbnail: Helpers::get_thumb("conga.jpg"),
+                    name: "Conga",
+                    category: "Outros",
+                    price: 299,
+                },
+                {
+                    thumbnail: Helpers::get_thumb("violino.jpg"),
+                    name: "Viviolino",
+                    category: "Cordas",
+                    price: 699,
+                },
+                {
+                    thumbnail: Helpers::get_thumb("telecaster.jpg"),
+                    name: "TelaCaster",
+                    category: "Cordas",
+                    price: 529,
+                }
+            ]
+
+            payloads.each do |payload|
+                MongoDB.new.remove_equipo(payload[:name], @user_id)
+                Equipos.new.create(payload, @user_id)
+            end
+
+            #quando faco uma requisicao get para /equipos
+            @result = Equipos.new.list(@user_id)
+        end    
+            
+        it "Deve retornar 200" do
+            expect(@result.code).to eql 200
+        end
+
+        it "Deve retornar uma lista de equipos" do
+            expect(@result.parsed_response).not_to be_empty
+        end
+    end
+end
