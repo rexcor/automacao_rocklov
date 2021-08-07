@@ -1,10 +1,10 @@
 require 'mongo'
 
 class MongoDB    
-    attr_accessor :users, :equipos
+    attr_accessor :users, :equipos, :client
     
     def initialize
-        client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
+        @client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
         @users = client[:users]
         @equipos = client[:equipos]
     end
@@ -27,6 +27,15 @@ class MongoDB
     def get_mongo_id
         return BSON::ObjectId.new
     end
+
+    def drop_danger
+        @client.database.drop
+    end
+
+    def insert_users(docs)
+        @users.insert_many(docs)
+    end
+
 end
 
 
