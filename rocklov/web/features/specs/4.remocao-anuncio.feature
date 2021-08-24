@@ -8,17 +8,17 @@ Funcionalidade: Remover Anuncio
     Contexto: Login
         * Login com "debs@hotmail.com" e "pwd123"
 
-@temp
     Cenario: Remover um anuncio
         Dado que eu tenho um anuncio indesejado
             | thumb     | telecaster.jpg |
             | nome      | Telecaster     |
             | categoria | Cordas         |
             | preco     | 50             |
-        Quando eu apago esse anuncio
+        Quando eu solicito a exclusao desse item
             E confirmo a exclusao
         Entao nao devo ver esse item no meu dashboard
 
+@temp
     Cenario: Desistir da exclusao
         Dado que eu tenho um anuncio indesejado
             | thumb     | conga.jpg |
@@ -27,4 +27,4 @@ Funcionalidade: Remover Anuncio
             | preco     | 120       |
         Quando eu solicito a exclusao desse item
             Mas nao confirmo a exclusao
-        Entao devo ver esse item no meu dashboard
+        Entao esse item deve permanecer no meu dashboard
