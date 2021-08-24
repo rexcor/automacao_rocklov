@@ -5,6 +5,10 @@ Funcionalidade: Remover Anuncio
     Quero poder remover esse anuncio
     Para que eu possa manter o meu Dashboard atualizado
 
+    Contexto: Login
+        * Login com "debs@hotmail.com" e "pwd123"
+
+@temp
     Cenario: Remover um anuncio
         Dado que eu tenho um anuncio indesejado
             | thumb     | telecaster.jpg |

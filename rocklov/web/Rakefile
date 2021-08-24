@@ -13,10 +13,11 @@ end
 task :seeds do
     users = [
         {name: "Gabriel", email: "gabriel_teste@gmail.com", password: to_md5("pwd123")},
+        {name: "Debora", email: "debs@hotmail.com", password: to_md5("pwd123")},
       ]
 
       MongoDB.new.drop_danger
       MongoDB.new.insert_users(users)
 
-      sh "cucumber"
+      #sh "cucumber"
 end

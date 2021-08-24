@@ -17,7 +17,7 @@ Funcionalidade: Cadastro de anuncios
             | preco     | 200           |
         Quando submeto o cadastro desse item
         Entao devo ver esse item no meu Dashboard
-    @temp
+
     Esquema do Cenario: Tentativa de cadastro de anuncios
         Dado que acesso o formulario de cadastro de anuncios
             E que eu tenho o seguinte equipameto:

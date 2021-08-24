@@ -3,6 +3,9 @@ Dado('Login com {string} e {string}') do |email, password|
     @email = email
     @login_page.open
     @login_page.with(email, password)
+
+    #checkpoint para garantir que estamos no dashboard
+    expect(@dash_page.on_dash?).to be true
 end
   
 Dado('que acesso o formulario de cadastro de anuncios') do
@@ -26,4 +29,35 @@ end
 
 Entao('deve conter a mensagem de alerta: {string}') do |expect_alert|
     expect(@alert.dark).to have_text expect_alert
+end
+
+######################### Remover anuncios #########################
+
+Dado('que eu tenho um anuncio indesejado') do |table|
+    user_id = page.execute_script("return localStorage.getItem('user')")
+    log user_id
+
+    thumbnail = File.open(File.join(Dir.pwd, "features/support/fixtures/images", table.rows_hash[:thumb]))
+
+    @equipo = {
+        thumbnail: thumbnail,
+        name: table.rows_hash[:nome],
+        category: table.rows_hash[:categoria],
+        price: table.rows_hash[:preco],
+    }
+
+    EquiposServices.new.create(@equipo, user_id)
+    visit current_path
+end
+  
+Quando('eu apago esse anuncio') do
+    @dash_page.request_removal(@equipo[:name])
+end
+  
+Quando('confirmo a exclusao') do
+    @dash_page.confirm_removal
+end
+  
+Entao('nao devo ver esse item no meu dashboard') do
+    expect(@dash_page.has_no_equipo?(@equipo[:name])).to be true
 end
