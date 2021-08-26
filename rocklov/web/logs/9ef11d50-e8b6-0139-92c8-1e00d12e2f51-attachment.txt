@@ -1,0 +1,1 @@
+locataria@teste.com.br deseja alugar o equipamento: trompete em: DATA_ATUAL

@@ -18,7 +18,7 @@ Funcionalidade: Remover Anuncio
             E confirmo a exclusao
         Entao nao devo ver esse item no meu dashboard
 
-@temp
+
     Cenario: Desistir da exclusao
         Dado que eu tenho um anuncio indesejado
             | thumb     | conga.jpg |

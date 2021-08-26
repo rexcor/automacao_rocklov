@@ -14,6 +14,9 @@ task :seeds do
     users = [
         {name: "Gabriel", email: "gabriel_teste@gmail.com", password: to_md5("pwd123")},
         {name: "Debora", email: "debs@hotmail.com", password: to_md5("pwd123")},
+        {name: "Anunciante", email: "anunciante@teste.com.br", password: to_md5("pwd123")},
+        {name: "Locataria", email: "locataria@teste.com.br", password: to_md5("pwd123")},
+        
       ]
 
       MongoDB.new.drop_danger
